@@ -31,6 +31,10 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .admin-login {
@@ -41,7 +45,6 @@
             max-width: 450px;
             padding: 40px;
             text-align: center;
-            margin: 50px auto;
         }
 
         .admin-login h1 {
@@ -278,4 +281,1254 @@
             background-color: var(--info);
         }
 
-        .card-icon
+        .card-icon.warning {
+            background-color: var(--warning);
+        }
+
+        .card-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .card-change {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-change.positive {
+            color: var(--secondary);
+        }
+
+        .card-change.negative {
+            color: var(--danger);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.85rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .status {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status.pending {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+
+        .status.completed {
+            background-color: #D1FAE5;
+            color: #065F46;
+        }
+
+        .status.cancelled {
+            background-color: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .status.active {
+            background-color: #D1FAE5;
+            color: #065F46;
+        }
+
+        .status.inactive {
+            background-color: #FEE2E2;
+            color: #991B1B;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #D1D5DB;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        /* Charts */
+        .chart-container {
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #6B7280;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            padding: 20px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .dashboard-cards {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .user-info {
+                margin-top: 10px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-header .btn {
+                margin-top: 10px;
+            }
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            z-index: 1001;
+            animation: slideIn 0.3s ease;
+        }
+
+        .notification.success {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .notification.error {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Admin Login Form -->
+    <div class="admin-login" id="adminLogin">
+        <h1><i class="fas fa-user-shield"></i> অ্যাডমিন লগইন</h1>
+        <p>অ্যাডমিন প্যানেলে প্রবেশ করতে আপনার পাসওয়ার্ড লিখুন</p>
+        <form id="adminLoginForm">
+            <div class="form-group">
+                <label for="adminPassword">পাসওয়ার্ড</label>
+                <input type="password" class="form-control" id="adminPassword" placeholder="পাসওয়ার্ড লিখুন" required>
+            </div>
+            <button type="submit" class="btn btn-primary">লগইন করুন</button>
+            <div class="error-message" id="loginError"></div>
+        </form>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-container" id="adminContainer">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-graduation-cap"></i> লার্নমাস্টার্স</h2>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li><a href="#" class="active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> ড্যাশবোর্ড</a></li>
+                    <li><a href="#" data-section="courses"><i class="fas fa-book"></i> কোর্স ব্যবস্থাপনা</a></li>
+                    <li><a href="#" data-section="orders"><i class="fas fa-shopping-cart"></i> অর্ডার ব্যবস্থাপনা</a></li>
+                    <li><a href="#" data-section="users"><i class="fas fa-users"></i> ব্যবহারকারী ব্যবস্থাপনা</a></li>
+                    <li><a href="#" data-section="reports"><i class="fas fa-chart-bar"></i> রিপোর্ট</a></li>
+                    <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> সেটিংস</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> মূল সাইটে যান</a></li>
+                    <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> লগআউট</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <h1 id="pageTitle">ড্যাশবোর্ড</h1>
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div class="user-name">অ্যাডমিন</div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">মোট কোর্স</div>
+                            <div class="card-icon primary">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">১২</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> ১২% বৃদ্ধি
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">মোট অর্ডার</div>
+                            <div class="card-icon secondary">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">২৪৮</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> ৮% বৃদ্ধি
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">মোট ব্যবহারকারী</div>
+                            <div class="card-icon info">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">১,২৪৫</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> ১৫% বৃদ্ধি
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">মোট আয়</div>
+                            <div class="card-icon warning">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">৳ ৫,৪২,০০০</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> ২০% বৃদ্ধি
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="section-header">
+                        <h2 class="section-title">সাম্প্রতিক অর্ডার</h2>
+                        <a href="#" class="btn btn-primary" data-section="orders">সব দেখুন</a>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>অর্ডার ID</th>
+                                    <th>কোর্স</th>
+                                    <th>ব্যবহারকারী</th>
+                                    <th>তারিখ</th>
+                                    <th>মূল্য</th>
+                                    <th>স্ট্যাটাস</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-001</td>
+                                    <td>ওয়েব ডেভেলপমেন্ট</td>
+                                    <td>রাকিব হাসান</td>
+                                    <td>২০২৩-১০-১৫</td>
+                                    <td>৳ ৪,৯৯৯</td>
+                                    <td><span class="status completed">সম্পন্ন</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-002</td>
+                                    <td>পাইথন প্রোগ্রামিং</td>
+                                    <td>সামিয়া আক্তার</td>
+                                    <td>২০২৩-১০-১৪</td>
+                                    <td>৳ ৩,৯৯৯</td>
+                                    <td><span class="status pending">পেন্ডিং</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-003</td>
+                                    <td>ডিজিটাল মার্কেটিং</td>
+                                    <td>তানভীর আহমেদ</td>
+                                    <td>২০২৩-১০-১৩</td>
+                                    <td>৳ ২,৯৯৯</td>
+                                    <td><span class="status completed">সম্পন্ন</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-004</td>
+                                    <td>অ্যান্ড্রয়েড ডেভেলপমেন্ট</td>
+                                    <td>ফারহান কবির</td>
+                                    <td>২০২৩-১০-১২</td>
+                                    <td>৳ ৫,৪৯৯</td>
+                                    <td><span class="status cancelled">বাতিল</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-005</td>
+                                    <td>গ্রাফিক ডিজাইন</td>
+                                    <td>নাদিয়া ইসলাম</td>
+                                    <td>২০২৩-১০-১১</td>
+                                    <td>৳ ৩,৪৯৯</td>
+                                    <td><span class="status completed">সম্পন্ন</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Courses Section -->
+            <section id="courses" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">কোর্স ব্যবস্থাপনা</h2>
+                    <button class="btn btn-primary" id="addCourseBtn">নতুন কোর্স যোগ করুন</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>কোর্সের নাম</th>
+                                <th>ইন্সট্রাক্টর</th>
+                                <th>মূল্য</th>
+                                <th>শিক্ষার্থী</th>
+                                <th>স্ট্যাটাস</th>
+                                <th>ক্রিয়া</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CRS-001</td>
+                                <td>ওয়েব ডেভেলপমেন্ট মাস্টারকোর্স</td>
+                                <td>রাকিব হাসান</td>
+                                <td>৳ ৪,৯৯৯</td>
+                                <td>১,২৫০</td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm edit-course">সম্পাদনা</button>
+                                    <button class="btn btn-danger btn-sm delete-course">মুছুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CRS-002</td>
+                                <td>পাইথন প্রোগ্রামিং বিগিনার থেকে এক্সপার্ট</td>
+                                <td>সামিয়া আক্তার</td>
+                                <td>৳ ৩,৯৯৯</td>
+                                <td>৯৮০</td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm edit-course">সম্পাদনা</button>
+                                    <button class="btn btn-danger btn-sm delete-course">মুছুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CRS-003</td>
+                                <td>ডিজিটাল মার্কেটিং কমপ্লিট কোর্স</td>
+                                <td>তানভীর আহমেদ</td>
+                                <td>৳ ২,৯৯৯</td>
+                                <td>৭৫০</td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm edit-course">সম্পাদনা</button>
+                                    <button class="btn btn-danger btn-sm delete-course">মুছুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CRS-004</td>
+                                <td>অ্যান্ড্রয়েড অ্যাপ ডেভেলপমেন্ট</td>
+                                <td>ফারহান কবির</td>
+                                <td>৳ ৫,৪৯৯</td>
+                                <td>১,১০০</td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm edit-course">সম্পাদনা</button>
+                                    <button class="btn btn-danger btn-sm delete-course">মুছুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CRS-005</td>
+                                <td>গ্রাফিক ডিজাইন মাস্টারক্লাস</td>
+                                <td>নাদিয়া ইসলাম</td>
+                                <td>৳ ৩,৪৯৯</td>
+                                <td>৮৫০</td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm edit-course">সম্পাদনা</button>
+                                    <button class="btn btn-danger btn-sm delete-course">মুছুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CRS-006</td>
+                                <td>ডাটা সায়েন্স উইথ মেশিন লার্নিং</td>
+                                <td>ড. আরিফ হোসেন</td>
+                                <td>৳ ৬,৯৯৯</td>
+                                <td>৬২০</td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm edit-course">সম্পাদনা</button>
+                                    <button class="btn btn-danger btn-sm delete-course">মুছুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CRS-007</td>
+                                <td>ইথিক্যাল হ্যাকিং</td>
+                                <td>কামরুল হাসান</td>
+                                <td>৳ ৭,৯৯৯</td>
+                                <td>৪৫০</td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm edit-course">সম্পাদনা</button>
+                                    <button class="btn btn-danger btn-sm delete-course">মুছুন</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">অর্ডার ব্যবস্থাপনা</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>অর্ডার ID</th>
+                                <th>কোর্স</th>
+                                <th>ব্যবহারকারী</th>
+                                <th>তারিখ</th>
+                                <th>মূল্য</th>
+                                <th>স্ট্যাটাস</th>
+                                <th>ক্রিয়া</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD-001</td>
+                                <td>ওয়েব ডেভেলপমেন্ট</td>
+                                <td>রাকিব হাসান</td>
+                                <td>২০২৩-১০-১৫</td>
+                                <td>৳ ৪,৯৯৯</td>
+                                <td><span class="status completed">সম্পন্ন</span></td>
+                                <td>
+                                    <select class="form-control order-status">
+                                        <option value="pending">পেন্ডিং</option>
+                                        <option value="completed" selected>সম্পন্ন</option>
+                                        <option value="cancelled">বাতিল</option>
+                                    </select>
+                                    <button class="btn btn-danger btn-sm cancel-order">বাতিল করুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-002</td>
+                                <td>পাইথন প্রোগ্রামিং</td>
+                                <td>সামিয়া আক্তার</td>
+                                <td>২০২৩-১০-১৪</td>
+                                <td>৳ ৩,৯৯৯</td>
+                                <td><span class="status pending">পেন্ডিং</span></td>
+                                <td>
+                                    <select class="form-control order-status">
+                                        <option value="pending" selected>পেন্ডিং</option>
+                                        <option value="completed">সম্পন্ন</option>
+                                        <option value="cancelled">বাতিল</option>
+                                    </select>
+                                    <button class="btn btn-danger btn-sm cancel-order">বাতিল করুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-003</td>
+                                <td>ডিজিটাল মার্কেটিং</td>
+                                <td>তানভীর আহমেদ</td>
+                                <td>২০২৩-১০-১৩</td>
+                                <td>৳ ২,৯৯৯</td>
+                                <td><span class="status completed">সম্পন্ন</span></td>
+                                <td>
+                                    <select class="form-control order-status">
+                                        <option value="pending">পেন্ডিং</option>
+                                        <option value="completed" selected>সম্পন্ন</option>
+                                        <option value="cancelled">বাতিল</option>
+                                    </select>
+                                    <button class="btn btn-danger btn-sm cancel-order">বাতিল করুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-004</td>
+                                <td>অ্যান্ড্রয়েড ডেভেলপমেন্ট</td>
+                                <td>ফারহান কবির</td>
+                                <td>২০২৩-১০-১২</td>
+                                <td>৳ ৫,৪৯৯</td>
+                                <td><span class="status cancelled">বাতিল</span></td>
+                                <td>
+                                    <select class="form-control order-status">
+                                        <option value="pending">পেন্ডিং</option>
+                                        <option value="completed">সম্পন্ন</option>
+                                        <option value="cancelled" selected>বাতিল</option>
+                                    </select>
+                                    <button class="btn btn-danger btn-sm cancel-order">বাতিল করুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-005</td>
+                                <td>গ্রাফিক ডিজাইন</td>
+                                <td>নাদিয়া ইসলাম</td>
+                                <td>২০২৩-১০-১১</td>
+                                <td>৳ ৩,৪৯৯</td>
+                                <td><span class="status completed">সম্পন্ন</span></td>
+                                <td>
+                                    <select class="form-control order-status">
+                                        <option value="pending">পেন্ডিং</option>
+                                        <option value="completed" selected>সম্পন্ন</option>
+                                        <option value="cancelled">বাতিল</option>
+                                    </select>
+                                    <button class="btn btn-danger btn-sm cancel-order">বাতিল করুন</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">ব্যবহারকারী ব্যবস্থাপনা</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>নাম</th>
+                                <th>ইমেইল</th>
+                                <th>ভূমিকা</th>
+                                <th>স্ট্যাটাস</th>
+                                <th>যোগদানের তারিখ</th>
+                                <th>ক্রিয়া</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>USR-001</td>
+                                <td>রাকিব হাসান</td>
+                                <td>rakib@example.com</td>
+                                <td>
+                                    <select class="form-control user-role">
+                                        <option value="admin">অ্যাডমিন</option>
+                                        <option value="user" selected>ব্যবহারকারী</option>
+                                    </select>
+                                </td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>২০২৩-০১-১৫</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm deactivate-user">নিষ্ক্রিয় করুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>USR-002</td>
+                                <td>সামিয়া আক্তার</td>
+                                <td>samia@example.com</td>
+                                <td>
+                                    <select class="form-control user-role">
+                                        <option value="admin">অ্যাডমিন</option>
+                                        <option value="user" selected>ব্যবহারকারী</option>
+                                    </select>
+                                </td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>২০২৩-০২-২০</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm deactivate-user">নিষ্ক্রিয় করুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>USR-003</td>
+                                <td>তানভীর আহমেদ</td>
+                                <td>tanvir@example.com</td>
+                                <td>
+                                    <select class="form-control user-role">
+                                        <option value="admin">অ্যাডমিন</option>
+                                        <option value="user" selected>ব্যবহারকারী</option>
+                                    </select>
+                                </td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>২০২৩-০৩-১০</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm deactivate-user">নিষ্ক্রিয় করুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>USR-004</td>
+                                <td>ফারহান কবির</td>
+                                <td>farhan@example.com</td>
+                                <td>
+                                    <select class="form-control user-role">
+                                        <option value="admin" selected>অ্যাডমিন</option>
+                                        <option value="user">ব্যবহারকারী</option>
+                                    </select>
+                                </td>
+                                <td><span class="status active">সক্রিয়</span></td>
+                                <td>২০২৩-০৪-০৫</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm deactivate-user">নিষ্ক্রিয় করুন</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>USR-005</td>
+                                <td>নাদিয়া ইসলাম</td>
+                                <td>nadia@example.com</td>
+                                <td>
+                                    <select class="form-control user-role">
+                                        <option value="admin">অ্যাডমিন</option>
+                                        <option value="user" selected>ব্যবহারকারী</option>
+                                    </select>
+                                </td>
+                                <td><span class="status inactive">নিষ্ক্রিয়</span></td>
+                                <td>২০২৩-০৫-১২</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm activate-user">সক্রিয় করুন</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">রিপোর্ট</h2>
+                </div>
+                
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">এই মাসে বিক্রি</div>
+                            <div class="card-icon primary">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">৳ ১,২৪,৫০০</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> ১৮% বৃদ্ধি
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">জনপ্রিয় কোর্স</div>
+                            <div class="card-icon secondary">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">ওয়েব ডেভেলপমেন্ট</div>
+                        <div class="card-change positive">
+                            <i class="fas fa-arrow-up"></i> ২৫% বৃদ্ধি
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="section-header">
+                        <h3 class="section-title">মাসিক বিক্রির প্রবণতা</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="section-header">
+                        <h3 class="section-title">কোর্সের জনপ্রিয়তা</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="popularityChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">সেটিংস</h2>
+                </div>
+                
+                <div class="card">
+                    <form>
+                        <div class="form-group">
+                            <label for="siteName">সাইটের নাম</label>
+                            <input type="text" class="form-control" id="siteName" value="লার্নমাস্টার্স">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="adminEmail">অ্যাডমিন ইমেইল</label>
+                            <input type="email" class="form-control" id="adminEmail" value="admin@learnmasters.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="adminPassword">অ্যাডমিন পাসওয়ার্ড</label>
+                            <input type="password" class="form-control" id="adminPassword" value="admin123">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="currency">মুদ্রা</label>
+                            <select class="form-control" id="currency">
+                                <option value="BDT" selected>বাংলাদেশি টাকা (৳)</option>
+                                <option value="USD">ইউএস ডলার ($)</option>
+                                <option value="EUR">ইউরো (€)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked> নতুন কোর্স যোগ হলে ইমেইল নোটিফিকেশন
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked> নতুন অর্ডার হলে ইমেইল নোটিফিকেশন
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">সেটিংস সংরক্ষণ করুন</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add/Edit Course Modal -->
+    <div class="modal" id="courseModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title" id="courseModalTitle">নতুন কোর্স যোগ করুন</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="courseForm">
+                    <div class="form-group">
+                        <label for="courseName">কোর্সের নাম</label>
+                        <input type="text" class="form-control" id="courseName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="instructor">ইন্সট্রাক্টর</label>
+                        <input type="text" class="form-control" id="instructor" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="price">মূল্য</label>
+                        <input type="number" class="form-control" id="price" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="duration">সময়কাল (ঘন্টা)</label>
+                        <input type="number" class="form-control" id="duration" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">বিবরণ</label>
+                        <textarea class="form-control" id="description" rows="4"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="saveCourseBtn">সংরক্ষণ করুন</button>
+                <button class="btn btn-danger modal-close">বাতিল</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Admin login functionality
+            const adminLoginForm = document.getElementById('adminLoginForm');
+            const adminLogin = document.getElementById('adminLogin');
+            const adminContainer = document.getElementById('adminContainer');
+            const loginError = document.getElementById('loginError');
+            
+            // Set admin password (you can change this)
+            const adminPassword = "admin123";
+            
+            adminLoginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const password = document.getElementById('adminPassword').value;
+                
+                if (password === adminPassword) {
+                    adminLogin.style.display = 'none';
+                    adminContainer.classList.add('active');
+                    showNotification('লগইন সফল হয়েছে!', 'success');
+                } else {
+                    loginError.textContent = 'ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।';
+                }
+            });
+            
+            // Sidebar navigation
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const pageTitle = document.getElementById('pageTitle');
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Skip logout link and main site link
+                    if (this.id === 'logoutBtn') {
+                        if (confirm('আপনি কি লগআউট করতে চান?')) {
+                            adminLogin.style.display = 'block';
+                            adminContainer.classList.remove('active');
+                            document.getElementById('adminPassword').value = '';
+                            loginError.textContent = '';
+                            showNotification('লগআউট সফল হয়েছে!', 'success');
+                        }
+                        return;
+                    }
+                    
+                    if (this.getAttribute('href') === 'index.html') {
+                        window.location.href = 'index.html';
+                        return;
+                    }
+                    
+                    // Remove active class from all links and sections
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    contentSections.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Get section id from data attribute
+                    const sectionId = this.getAttribute('data-section');
+                    
+                    // Show corresponding section
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        section.classList.add('active');
+                        
+                        // Update page title
+                        const sectionTitle = section.querySelector('.section-title').textContent;
+                        pageTitle.textContent = sectionTitle;
+                    }
+                    
+                    // Initialize charts if reports section
+                    if (sectionId === 'reports') {
+                        initializeCharts();
+                    }
+                });
+            });
+            
+            // Course Management
+            const addCourseBtn = document.getElementById('addCourseBtn');
+            const courseModal = document.getElementById('courseModal');
+            const courseModalTitle = document.getElementById('courseModalTitle');
+            const courseForm = document.getElementById('courseForm');
+            const saveCourseBtn = document.getElementById('saveCourseBtn');
+            const modalCloseButtons = document.querySelectorAll('.modal-close');
+            
+            // Open add course modal
+            addCourseBtn.addEventListener('click', function() {
+                courseModalTitle.textContent = 'নতুন কোর্স যোগ করুন';
+                courseForm.reset();
+                courseModal.classList.add('active');
+            });
+            
+            // Edit course
+            const editCourseButtons = document.querySelectorAll('.edit-course');
+            editCourseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const cells = row.querySelectorAll('td');
+                    
+                    courseModalTitle.textContent = 'কোর্স সম্পাদনা করুন';
+                    document.getElementById('courseName').value = cells[1].textContent;
+                    document.getElementById('instructor').value = cells[2].textContent;
+                    document.getElementById('price').value = cells[3].textContent.replace('৳ ', '').replace(',', '');
+                    
+                    courseModal.classList.add('active');
+                });
+            });
+            
+            // Delete course
+            const deleteCourseButtons = document.querySelectorAll('.delete-course');
+            deleteCourseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (confirm('আপনি কি এই কোর্সটি মুছে ফেলতে চান?')) {
+                        this.closest('tr').remove();
+                        showNotification('কোর্সটি সফলভাবে মুছে ফেলা হয়েছে!', 'success');
+                    }
+                });
+            });
+            
+            // Save course
+            saveCourseBtn.addEventListener('click', function() {
+                if (courseForm.checkValidity()) {
+                    courseModal.classList.remove('active');
+                    showNotification('কোর্সটি সফলভাবে সংরক্ষণ করা হয়েছে!', 'success');
+                } else {
+                    courseForm.reportValidity();
+                }
+            });
+            
+            // Order Management
+            const orderStatusSelects = document.querySelectorAll('.order-status');
+            orderStatusSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    const statusCell = this.closest('tr').querySelector('.status');
+                    statusCell.className = 'status ' + this.value;
+                    
+                    if (this.value === 'pending') {
+                        statusCell.textContent = 'পেন্ডিং';
+                    } else if (this.value === 'completed') {
+                        statusCell.textContent = 'সম্পন্ন';
+                    } else if (this.value === 'cancelled') {
+                        statusCell.textContent = 'বাতিল';
+                    }
+                    
+                    showNotification('অর্ডার স্ট্যাটাস আপডেট করা হয়েছে!', 'success');
+                });
+            });
+            
+            // Cancel order
+            const cancelOrderButtons = document.querySelectorAll('.cancel-order');
+            cancelOrderButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (confirm('আপনি কি এই অর্ডারটি বাতিল করতে চান?')) {
+                        const statusCell = this.closest('tr').querySelector('.status');
+                        const statusSelect = this.closest('tr').querySelector('.order-status');
+                        
+                        statusCell.className = 'status cancelled';
+                        statusCell.textContent = 'বাতিল';
+                        statusSelect.value = 'cancelled';
+                        
+                        showNotification('অর্ডারটি বাতিল করা হয়েছে!', 'success');
+                    }
+                });
+            });
+            
+            // User Management
+            const userRoleSelects = document.querySelectorAll('.user-role');
+            userRoleSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    showNotification('ব্যবহারকারীর ভূমিকা আপডেট করা হয়েছে!', 'success');
+                });
+            });
+            
+            // Deactivate user
+            const deactivateUserButtons = document.querySelectorAll('.deactivate-user');
+            deactivateUserButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (confirm('আপনি কি এই ব্যবহারকারীকে নিষ্ক্রিয় করতে চান?')) {
+                        const statusCell = this.closest('tr').querySelector('.status');
+                        statusCell.className = 'status inactive';
+                        statusCell.textContent = 'নিষ্ক্রিয়';
+                        
+                        this.textContent = 'সক্রিয় করুন';
+                        this.className = 'btn btn-primary btn-sm activate-user';
+                        
+                        showNotification('ব্যবহারকারী নিষ্ক্রিয় করা হয়েছে!', 'success');
+                    }
+                });
+            });
+            
+            // Activate user
+            const activateUserButtons = document.querySelectorAll('.activate-user');
+            activateUserButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (confirm('আপনি কি এই ব্যবহারকারীকে সক্রিয় করতে চান?')) {
+                        const statusCell = this.closest('tr').querySelector('.status');
+                        statusCell.className = 'status active';
+                        statusCell.textContent = 'সক্রিয়';
+                        
+                        this.textContent = 'নিষ্ক্রিয় করুন';
+                        this.className = 'btn btn-danger btn-sm deactivate-user';
+                        
+                        showNotification('ব্যবহারকারী সক্রিয় করা হয়েছে!', 'success');
+                    }
+                });
+            });
+            
+            // Settings form
+            const settingsForm = document.querySelector('#settings form');
+            settingsForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Update admin password if changed
+                const newPassword = document.getElementById('adminPassword').value;
+                if (newPassword) {
+                    // In a real application, you would save this to a database
+                    // For this demo, we'll just show a notification
+                    showNotification('অ্যাডমিন পাসওয়ার্ড আপডেট করা হয়েছে!', 'success');
+                }
+                
+                showNotification('সেটিংস সফলভাবে সংরক্ষণ করা হয়েছে!', 'success');
+            });
+            
+            // Close modals
+            modalCloseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.closest('.modal').classList.remove('active');
+                });
+            });
+            
+            // Initialize charts
+            function initializeCharts() {
+                // Sales Chart
+                const salesCtx = document.getElementById('salesChart').getContext('2d');
+                new Chart(salesCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর'],
+                        datasets: [{
+                            label: 'বিক্রি (টাকা)',
+                            data: [65000, 75000, 80000, 90000, 85000, 95000, 100000, 110000, 115000, 124500],
+                            backgroundColor: 'rgba(79, 70, 229, 0.2)',
+                            borderColor: 'rgba(79, 70, 229, 1)',
+                            borderWidth: 2,
+                            tension: 0.3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '৳ ' + value.toLocaleString('bn-BD');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                // Popularity Chart
+                const popularityCtx = document.getElementById('popularityChart').getContext('2d');
+                new Chart(popularityCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['ওয়েব ডেভেলপমেন্ট', 'পাইথন প্রোগ্রামিং', 'অ্যান্ড্রয়েড ডেভেলপমেন্ট', 'ডাটা সায়েন্স', 'ইথিক্যাল হ্যাকিং', 'গ্রাফিক ডিজাইন'],
+                        datasets: [{
+                            label: 'শিক্ষার্থী সংখ্যা',
+                            data: [1250, 980, 1100, 620, 450, 850],
+                            backgroundColor: [
+                                'rgba(79, 70, 229, 0.7)',
+                                'rgba(16, 185, 129, 0.7)',
+                                'rgba(59, 130, 246, 0.7)',
+                                'rgba(245, 158, 11, 0.7)',
+                                'rgba(239, 68, 68, 0.7)',
+                                'rgba(139, 92, 246, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(79, 70, 229, 1)',
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(59, 130, 246, 1)',
+                                'rgba(245, 158, 11, 1)',
+                                'rgba(239, 68, 68, 1)',
+                                'rgba(139, 92, 246, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Show notification
+            function showNotification(message, type = 'success') {
+                const notification = document.createElement('div');
+                notification.className = 'notification ' + type;
+                notification.textContent = message;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+            
+            // Add CSS for notification animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
