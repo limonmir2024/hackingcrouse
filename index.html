@@ -148,6 +148,15 @@
             color: white;
         }
 
+        .btn-success {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #059669;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -645,6 +654,127 @@
             color: #EF4444;
         }
 
+        /* Payment Modal */
+        .payment-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .payment-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .payment-container {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .payment-modal.active .payment-container {
+            transform: translateY(0);
+        }
+
+        .payment-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .payment-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .payment-body {
+            padding: 30px;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            border: 2px solid #e5e7eb;
+            border-radius: var(--radius);
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover,
+        .payment-method.active {
+            border-color: var(--primary);
+            background-color: rgba(79, 70, 229, 0.05);
+        }
+
+        .payment-method i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .payment-details {
+            margin-top: 20px;
+        }
+
+        .payment-info {
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+        }
+
+        .payment-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .payment-info p {
+            margin-bottom: 5px;
+        }
+
+        .payment-info .phone {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .payment-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .payment-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #6B7280;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
@@ -675,6 +805,10 @@
 
             .auth-container {
                 width: 95%;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -966,7 +1100,7 @@
                 <span>মোট:</span>
                 <span id="cartTotal">৳ ০</span>
             </div>
-            <button class="btn btn-primary cart-checkout">চেকআউট করুন</button>
+            <button class="btn btn-primary cart-checkout" id="checkoutBtn">চেকআউট করুন</button>
         </div>
     </div>
 
@@ -1028,6 +1162,62 @@
         </div>
     </div>
 
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-container">
+            <div class="payment-header">
+                <h2>পেমেন্ট সম্পন্ন করুন</h2>
+                <p>আপনার অর্ডারটি সম্পন্ন করতে পেমেন্ট করুন</p>
+                <button class="payment-close" id="paymentClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="payment-body">
+                <div class="payment-methods">
+                    <div class="payment-method active" data-method="bkash">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>বিকাশ</p>
+                    </div>
+                    <div class="payment-method" data-method="nagad">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <p>নগদ</p>
+                    </div>
+                    <div class="payment-method" data-method="rocket">
+                        <i class="fas fa-rocket"></i>
+                        <p>রকেট</p>
+                    </div>
+                    <div class="payment-method" data-method="card">
+                        <i class="fas fa-credit-card"></i>
+                        <p>কার্ড</p>
+                    </div>
+                </div>
+                
+                <div class="payment-details">
+                    <div class="payment-info">
+                        <h3>পেমেন্ট তথ্য</h3>
+                        <p><strong>মোট পরিমাণ:</strong> <span id="paymentAmount">৳ ০</span></p>
+                        <p><strong>পেমেন্ট পদ্ধতি:</strong> <span id="paymentMethod">বিকাশ</span></p>
+                        <p><strong>ফোন নাম্বার:</strong> <span class="phone">01932566013</span></p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transactionId">ট্রানজেকশন আইডি</label>
+                        <input type="text" class="form-control" id="transactionId" placeholder="ট্রানজেকশন আইডি লিখুন">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="senderNumber">প্রেরকের নাম্বার</label>
+                        <input type="text" class="form-control" id="senderNumber" placeholder="আপনার ফোন নাম্বার লিখুন">
+                    </div>
+                </div>
+            </div>
+            <div class="payment-footer">
+                <button class="btn btn-outline payment-close">বাতিল</button>
+                <button class="btn btn-success" id="confirmPayment">পেমেন্ট সম্পন্ন করুন</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Cart functionality
@@ -1038,6 +1228,7 @@
             const cartCount = document.getElementById('cartCount');
             const cartTotal = document.getElementById('cartTotal');
             const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const checkoutBtn = document.getElementById('checkoutBtn');
             
             let cart = [];
             
@@ -1060,6 +1251,14 @@
             const userAvatar = document.getElementById('userAvatar');
             const userDropdown = document.getElementById('userDropdown');
             const logoutBtn = document.getElementById('logoutBtn');
+            
+            // Payment elements
+            const paymentModal = document.getElementById('paymentModal');
+            const paymentClose = document.getElementById('paymentClose');
+            const confirmPayment = document.getElementById('confirmPayment');
+            const paymentAmount = document.getElementById('paymentAmount');
+            const paymentMethodText = document.getElementById('paymentMethod');
+            const paymentMethods = document.querySelectorAll('.payment-method');
             
             // Check if user is logged in
             let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -1313,6 +1512,81 @@
                     });
                 }
             }
+            
+            // Checkout button
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    showNotification('আপনার কার্টে কোনো আইটেম নেই!', 'error');
+                    return;
+                }
+                
+                if (!isLoggedIn) {
+                    showNotification('পেমেন্ট করতে লগইন করুন!', 'error');
+                    authModal.classList.add('active');
+                    showLoginForm();
+                    return;
+                }
+                
+                // Calculate total
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                paymentAmount.textContent = `৳ ${total.toLocaleString('bn-BD')}`;
+                
+                // Show payment modal
+                cartSidebar.classList.remove('active');
+                paymentModal.classList.add('active');
+            });
+            
+            // Payment method selection
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const method = this.getAttribute('data-method');
+                    if (method === 'bkash') {
+                        paymentMethodText.textContent = 'বিকাশ';
+                    } else if (method === 'nagad') {
+                        paymentMethodText.textContent = 'নগদ';
+                    } else if (method === 'rocket') {
+                        paymentMethodText.textContent = 'রকেট';
+                    } else if (method === 'card') {
+                        paymentMethodText.textContent = 'কার্ড';
+                    }
+                });
+            });
+            
+            // Close payment modal
+            paymentClose.addEventListener('click', function() {
+                paymentModal.classList.remove('active');
+            });
+            
+            // Confirm payment
+            confirmPayment.addEventListener('click', function() {
+                const transactionId = document.getElementById('transactionId').value;
+                const senderNumber = document.getElementById('senderNumber').value;
+                
+                if (!transactionId || !senderNumber) {
+                    showNotification('ট্রানজেকশন আইডি এবং প্রেরকের নাম্বার লিখুন!', 'error');
+                    return;
+                }
+                
+                // In a real application, you would process the payment here
+                // For this demo, we'll just show a success message
+                
+                // Clear cart
+                cart = [];
+                updateCart();
+                
+                // Close payment modal
+                paymentModal.classList.remove('active');
+                
+                // Show success message
+                showNotification('পেমেন্ট সফল হয়েছে! আপনার কোর্সটি খুব শীঘ্রই অ্যাক্টিভেট করা হবে।', 'success');
+                
+                // Reset form
+                document.getElementById('transactionId').value = '';
+                document.getElementById('senderNumber').value = '';
+            });
             
             // Show notification
             function showNotification(message, type = 'success') {
